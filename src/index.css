@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+  }
+
+  button {
+    @apply text-2xl  pb-4 font-semibold border-b-2 border-b-black;
+  }
+
+  li {
+    @apply font-semibold duration-150 ease-out hover:text-gray-500 cursor-pointer;
+  }
+}
