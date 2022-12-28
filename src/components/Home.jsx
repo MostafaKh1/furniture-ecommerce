@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Hero from "./Hero";
+import TopPicks from "./TopPicks";
 import ViewMore from "./ViewMore";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
       <Header />
       <Hero />
       <ViewMore />
+      <TopPicks />
     </div>
   );
 }

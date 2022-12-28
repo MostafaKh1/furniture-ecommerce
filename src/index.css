@@ -4,6 +4,7 @@
 
 @layer base {
   h1 {
+    @apply text-3xl font-semibold
   }
 
   button {
