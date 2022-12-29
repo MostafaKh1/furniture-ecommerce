@@ -1,23 +1,34 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getItem } from "../store/cartSlice";
 
+function TopProduct({ id, title, img, price }) {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
 
+  function addToCart() {
+    const alreadyInCart = cart.find((ele) => ele.id === id);
+    const data = {
+      id,
+      title,
+      img,
+      price,
+    };
+    if (!alreadyInCart) {
+      dispatch(getItem(data));
+    }
+  }
 
-
-function TopProduct({product}) {
-
-    const FourProudct = product.slice(0,4)
-    console.log(FourProudct)
   return (
-    <div className='flex items-center justify-center'>
-        {FourProudct.map((item) => <div key={item.id}>
-    <img src={item.img} />
-    <p>{item.title}</p>
-    <span> ${item.price}</span>
-        </div>)}
-    
+    <div>
+      <div className="cursor-pointer" onClick={() => addToCart()}>
+        <img className="mx-auto" src={img} />
+      </div>
+      <p>{title}</p>
+      <span> ${price}</span>
     </div>
-  )
+  );
 }
 
-export default TopProduct
+export default TopProduct;
