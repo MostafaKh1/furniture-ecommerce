@@ -36,7 +36,7 @@ function Header() {
           )}
         </div>
       </div>
-      <div className={`lg:hidden  absolute right-0 top-0 bg-[#FAF4F4]   `}>
+      <div className="lg:hidden  absolute right-0 top-0 bg-[#FAF4F4]">
         <NavMobile
           navMobileMenu={navMobileMenu}
           cart={<AiOutlineShoppingCart className="w-6 h-6" />}
@@ -48,19 +48,19 @@ function Header() {
         {/* icons */}
         <div className="flex gap-x-9">
           <a>
-            <AiOutlineUser className="w-6 h-6" />
+            <AiOutlineUser className="w-6 h-6 cursor-pointer " />
           </a>
 
           <a>
-            <BsSearch className="w-6 h-6" />
+            <BsSearch className="w-6 h-6  cursor-pointer" />
           </a>
 
           <a>
-            <MdFavoriteBorder className="w-6 h-6" />
+            <MdFavoriteBorder className="w-6 h-6 cursor-pointer" />
           </a>
 
           <a>
-            <AiOutlineShoppingCart className="w-6 h-6" />
+            <AiOutlineShoppingCart className="w-6 h-6 cursor-pointer" />
           </a>
         </div>
       </div>

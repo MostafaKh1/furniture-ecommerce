@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProduct } from "./store/productSlice";
-import Home from "../src/components/Home";
+import Home from "./pages/Home";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {

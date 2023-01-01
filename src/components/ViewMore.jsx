@@ -20,7 +20,7 @@ function ViewMore() {
             key={i}
             className="flex flex-col justify-start gap-y-8 items-center"
           >
-            <div className="items-center text-center ml-10 pt-5 w-[600px] h-[600px]">
+            <div className="items-center text-center ml-0  pt-5 max-w-[600px] max-h-[600px] lg:ml-10">
               <img src={img.url} />
             </div>
             <h3 className="text-5xl  font-semibold pb-9">side table</h3>

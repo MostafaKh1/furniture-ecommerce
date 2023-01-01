@@ -4,7 +4,7 @@
 
 @layer base {
   h1 {
-    @apply text-3xl font-semibold
+    @apply text-3xl font-semibold;
   }
 
   button {
@@ -13,5 +13,12 @@
 
   li {
     @apply font-semibold duration-150 ease-out hover:text-gray-500 cursor-pointer;
+  }
+  .btn {
+    @apply border border-black  text-2xl  py-[25px] px-[90px] text-center;
+  }
+
+  .btn-2 {
+    @apply border-none bg-[#FAF4F4] rounded-full text-2xl  drop-shadow-md py-[15px] px-[90px] text-center;
   }
 }

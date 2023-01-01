@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getItem } from "../store/cartSlice";
 
 function TopProduct({ id, title, img, price }) {

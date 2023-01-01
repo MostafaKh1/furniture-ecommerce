@@ -4,7 +4,6 @@ const initialState = {
   product: [],
   isLoading: false,
   error: null,
-
 };
 
 export const getProduct = createAsyncThunk(
@@ -34,7 +33,6 @@ const productSlice = createSlice({
     [getProduct.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.product = action.payload.record.products;
-      console.log(action.payload.record.products)
     },
     [getProduct.rejected]: () => {
       state.isLoading = false;
