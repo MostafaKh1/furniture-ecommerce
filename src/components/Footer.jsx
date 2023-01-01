@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer className="py-12">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  text-center lg:text-start gap-y-16">
+      <div className="grid grid-cols-2 md:grid-cols-4   text-center lg:text-start gap-y-16">
         {/* up */}
         <div className="flex items-center justify-center">
           <p className="max-w-[180px]">
@@ -39,13 +39,15 @@ function Footer() {
         </ul>
         <div className="flex flex-col gap-y-6">
           <span className="text-gray-500 pb-6">Newsletter</span>
-          <div className="flex gap-x-4 ">
+          <div className="flex flex-col gap-y-5 lg:flex-row gap-x-4 ">
             <input
               className="focus:outline-none pb-4  border-b-2 border-b-black"
               placeholder="Enter Your Email Address"
               type="text"
             />
-            <button className="text-sm lg:text-lg">SUBSCRIBE</button>
+            <button className="text-sm border-b-transparent lg:text-lg lg:border-b-black ">
+              SUBSCRIBE
+            </button>
           </div>
         </div>
       </div>
