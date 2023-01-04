@@ -7,6 +7,10 @@
     @apply text-3xl font-semibold;
   }
 
+  img {
+    @apply object-contain;
+  }
+
   button {
     @apply text-2xl  pb-4 font-semibold border-b-2 border-b-black;
   }

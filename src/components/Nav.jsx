@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
@@ -6,10 +7,10 @@ export default function Nav() {
       {/* links Desktop */}
       <ul className="flex  gap-x-12">
         <li className="">
-          <a>Home</a>
+          <Link path="/">Home</Link>
         </li>
         <li>
-          <a>Shop</a>
+          <Link to="/shop">Shop</Link>
         </li>
         <li>
           <a>About</a>

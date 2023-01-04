@@ -1,16 +1,23 @@
 import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProduct } from "./store/productSlice";
 import Home from "./pages/Home";
+import Shop from "./pages/Shop";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
   }, [dispatch]);
   return (
-    <div>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/shop" exact element={<Shop />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

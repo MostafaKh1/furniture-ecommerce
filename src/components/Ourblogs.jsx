@@ -28,8 +28,8 @@ function Ourblogs() {
           </p>
         </div>
         <div className=" grid  grid-cols-1 md:grid-cols-3 py-14 lg:py-16 text-center ">
-          {data.map((ele) => (
-            <div className="py-6">
+          {data.map((ele, i) => (
+            <div className="py-6" key={i}>
               <div>
                 <div>
                   <img className="mx-auto" src={ele.img} />

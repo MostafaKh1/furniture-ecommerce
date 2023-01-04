@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "glass-img": "url('./src/assets/Group34.png')",
+        shop: "url('./src/assets/shopbg.png')",
       },
     },
   },

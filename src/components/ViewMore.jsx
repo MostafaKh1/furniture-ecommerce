@@ -1,6 +1,7 @@
 import React from "react";
 import Img1 from "../assets/13.png";
 import Img2 from "../assets/img2.png";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -24,7 +25,9 @@ function ViewMore() {
               <img src={img.url} />
             </div>
             <h3 className="text-5xl  font-semibold pb-9">side table</h3>
-            <button>View More</button>
+            <Link to="/shop">
+              <button>View More</button>
+            </Link>
           </div>
         ))}
       </div>

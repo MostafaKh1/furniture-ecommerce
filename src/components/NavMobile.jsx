@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function NavMobile({ navMobileMenu, user, cart, favorite }) {
   return (
@@ -11,7 +12,7 @@ function NavMobile({ navMobileMenu, user, cart, favorite }) {
               <a className="text-2xl">Home</a>
             </li>
             <li>
-              <a className="text-2xl">Shop</a>
+              <Link className="text-2xl">Shop</Link>
             </li>
             <li>
               <a className="text-2xl">About</a>

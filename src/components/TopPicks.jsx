@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import TopProduct from "./TopProduct";
+import { Link } from "react-router-dom";
 
 export default function TopPicks() {
   const { product } = useSelector((state) => state.product);
@@ -33,7 +34,9 @@ export default function TopPicks() {
             ))}
           </div>
           <div className="mx-auto py-14 text-center lg:mt-10 ">
-            <button>View More</button>
+            <Link to="/shop">
+              <button>View More</button>
+            </Link>
           </div>
         </div>
       </div>
