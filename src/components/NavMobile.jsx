@@ -9,7 +9,9 @@ function NavMobile({ navMobileMenu, user, cart, favorite }) {
         <nav className="w-[300px] h-screen flex flex-col justify-center text-center pt-10 relative ">
           <ul className="flex flex-col text-center gap-y-5">
             <li>
-              <a className="text-2xl">Home</a>
+              <Link className="text-2xl" to="/">
+                Home
+              </Link>
             </li>
             <li>
               <Link className="text-2xl">Shop</Link>

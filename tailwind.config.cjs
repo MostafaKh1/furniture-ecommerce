@@ -5,6 +5,9 @@ module.exports = {
       backgroundImage: {
         shop: "url('./src/assets/shopbg.png')",
       },
+      colors: {
+        mainYellow: "#FFF9E5",
+      },
     },
   },
   section: {

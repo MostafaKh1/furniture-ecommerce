@@ -25,4 +25,7 @@
   .btn-2 {
     @apply border-none bg-[#FAF4F4] rounded-full text-2xl  drop-shadow-md py-[15px] px-[90px] text-center;
   }
+  .size {
+    @apply bg-[#FAF4F4] px-[10px]  py-[10px] rounded-md text-center cursor-pointer hover:bg-gray-500;
+  }
 }

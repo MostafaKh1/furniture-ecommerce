@@ -15,10 +15,10 @@ function Header() {
   const headerRef = useRef(null);
 
   useEffect(() => {
-    if (location.pathname === "/shop") {
-      headerRef.current.style.backgroundColor = "#fff";
-    } else {
+    if (location.pathname === "/") {
       headerRef.current.style.backgroundColor = "#FBEBB5";
+    } else {
+      headerRef.current.style.backgroundColor = "#fff";
     }
   }, [location]);
 

@@ -7,7 +7,7 @@ export default function Nav() {
       {/* links Desktop */}
       <ul className="flex  gap-x-12">
         <li className="">
-          <Link path="/">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/shop">Shop</Link>
