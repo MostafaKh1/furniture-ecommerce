@@ -28,4 +28,7 @@
   .size {
     @apply bg-[#FAF4F4] px-[10px]  py-[10px] rounded-md text-center cursor-pointer hover:bg-gray-500;
   }
+  .add-cart {
+    @apply p-0 text-center border border-black rounded-lg  text-sm   py-4 px-10;
+  }
 }

@@ -7,9 +7,9 @@ import Shop from "./pages/Shop";
 import ProductDetails from "./pages/ProductDetails";
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProduct());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getProduct());
+  // }, [dispatch]);
   return (
     <BrowserRouter>
       <div>

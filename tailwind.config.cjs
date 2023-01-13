@@ -1,9 +1,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  important: true,
   theme: {
     extend: {
       backgroundImage: {
-        shop: "url('./src/assets/shopbg.png')",
+        shop: "url('https://i.postimg.cc/W3j7k63K/shopbg.png')",
       },
       colors: {
         mainYellow: "#FFF9E5",

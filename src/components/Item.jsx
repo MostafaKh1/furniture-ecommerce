@@ -7,26 +7,22 @@ function Item({ id, title, img, price }) {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
 
-  function addToCart() {
-    const alreadyInCart = cart.find((ele) => ele.id === id);
-    const data = {
-      id,
-      title,
-      img,
-      price,
-    };
-    if (!alreadyInCart) {
-      dispatch(getItem(data));
-    }
-  }
+  // function addToCart() {
+  //   const alreadyInCart = cart.find((ele) => ele.id === id);
+  //   const data = {
+  //     id,
+  //     title,
+  //     img,
+  //     price,
+  //   };
+  //   if (!alreadyInCart) {
+  //     dispatch(getItem(data));
+  //   }
+  // }
 
   return (
     <div className="flex justify-center flex-col items-center w-full h-full  border rounded-md">
-      <Link
-        to={`/shop/${id}`}
-        className="items-center cursor-pointer "
-        onClick={() => addToCart()}
-      >
+      <Link to={`/shop/${id}`} className="items-center cursor-pointer ">
         <img src={img} />
       </Link>
       <div className="  text-center  py-6 pl-0 md:text-start md:pl-6 ">

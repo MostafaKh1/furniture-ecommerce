@@ -6,6 +6,7 @@ import DetailsSection from "../components/DetailsSection";
 
 function ProductDetails() {
   const { product } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.cart);
   const { productID } = useParams();
   const thisItem = product.find((item) => item.id === +productID); // [+] cuz get id of string change it to number
 
@@ -17,6 +18,7 @@ function ProductDetails() {
         img={thisItem?.img}
         price={thisItem?.price}
         id={thisItem?.id}
+        // cartCount={thisItem.cartCount}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -13,6 +13,7 @@ import NavMobile from "../components/NavMobile";
 function Header() {
   const location = useLocation();
   const headerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -25,11 +26,11 @@ function Header() {
   const [navMobileMenu, setNavMobileMenu] = useState(false);
   return (
     <header
-      className="bg-[#FBEBB5] flex justify-between  items-center  py-[30px] px-[10%] relative"
+      className=" flex justify-between  items-center  py-[30px] px-[10%] relative"
       ref={headerRef}
     >
       {/* <div className="flex justify-evenly  "> */}
-      <div>
+      <div onClick={() => navigate("/")} className="cursor-pointer">
         {/* logo */}
         <img src={logo} />
       </div>

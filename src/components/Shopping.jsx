@@ -22,11 +22,13 @@ function Shopping() {
         {data.map((ele, i) => (
           <div
             key={i}
-            className="  text-center lg:text-start py-4 gap-y-4  lg:flex-row"
+            className=" text-center lg:text-start py-4 gap-y-4  lg:flex-row"
           >
             <div className="py-5 ">
               <h3 className="text-3xl font-semibold pb-3">{ele.title}</h3>
-              <p className="text-gray-500 text-xl w-[376px]">{ele.text}</p>
+              <p className="text-gray-500 mx-auto lg:mx-0 text-xl w-[376px]">
+                {ele.text}
+              </p>
             </div>
           </div>
         ))}
