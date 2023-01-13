@@ -12,9 +12,7 @@ const cartSlice = createSlice({
       );
       if (indexItem >= 0) {
         state.cart[indexItem].cartCount += 1;
-        state.cart.push(...action.payload.size);
-        // console.log(action.payload.size);
-        // state.cart.size = action.payload.size;
+        state.cart[indexItem].size = action.payload.size;
       } else {
         const tempProduct = { ...action.payload, cartCount: 1 };
         state.cart.push(tempProduct);
@@ -25,8 +23,6 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
 
-      // console.log(state.cart[indexItem].cartCount);
-      // console.log(action.payload);
       if (state.cart[indexItem].cartCount > 1) {
         state.cart[indexItem].cartCount -= 1;
         console.log(state.cart[indexItem].cartCount);
