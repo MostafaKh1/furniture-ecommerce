@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Header from "./../components/Header";
 import DetailsSection from "../components/DetailsSection";
+import Footer from "../components/Footer";
+import TopPicks from "../components/TopPicks";
 
 function ProductDetails() {
   const { product } = useSelector((state) => state.product);
@@ -18,8 +20,10 @@ function ProductDetails() {
         img={thisItem?.img}
         price={thisItem?.price}
         id={thisItem?.id}
-        // cartCount={thisItem.cartCount}
+        cartCount={thisItem?.cartCount}
       />
+      <TopPicks />
+      <Footer />
     </div>
   );
 }

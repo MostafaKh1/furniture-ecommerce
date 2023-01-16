@@ -7,6 +7,7 @@ function DetailsSection({ title, img, price, id }) {
   const { cart } = useSelector((state) => state.cart);
   const thisProduct = cart.find((item) => item.id === id);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndexInfo, setSelectedIndexInfo] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -20,8 +21,6 @@ function DetailsSection({ title, img, price, id }) {
     };
     dispatch(getItem(data));
   }
-
-  console.log(thisProduct);
 
   function decrease(data) {
     if (thisProduct) {
@@ -40,6 +39,31 @@ function DetailsSection({ title, img, price, id }) {
       size: "XL",
     },
   ];
+  {
+    /* <div className="text-gray-500">Description</div>
+        <div className="text-gray-500">Additional Information</div>
+        <div className="text-gray-500">Reviews [5]</div> */
+  }
+  const longDescription =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. In ab suscipit harum sequi obcaecati consectetur nesciunt, labore repudiandae ratione voluptate consequatur voluptatem sapiente modi quam ullam maxime cumque! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor perspiciatis commodi eveniet? Molestias aut repellendus minima, facere cupiditate esse cum iste eos pariatur fugiat ullam. Reiciendis sed quidem inventore dignissimos.";
+  const infoData = [
+    {
+      title: "Description",
+      description: longDescription,
+    },
+    {
+      title: "Additional Information",
+      description: longDescription,
+    },
+    {
+      title: "Reviews [5]",
+      description: longDescription,
+    },
+  ];
+
+  function InfoDescription(index) {
+    setSelectedIndexInfo(index);
+  }
 
   return (
     <section className="container bg-[#fff] mx-auto py-14 lg:py-20">
@@ -53,9 +77,8 @@ function DetailsSection({ title, img, price, id }) {
         <span>|</span>
         <div className="font-semibold">{title}</div>
       </div>
-
-      <div className="flex flex-col lg:flex-row justify-evenly  ">
-        <div className="pt-12 lg:pt-16 flex justify-between gap-x-8">
+      <div className="flex flex-col gap-x-6 lg:flex-row justify-evenly py-12  ">
+        <div className="pt-12  lg:pt-16 flex justify-center lg:justify-between gap-x-8">
           {/* left */}
           <div className="flex flex-col gap-y-6">
             {/* small imgs */}
@@ -79,7 +102,7 @@ function DetailsSection({ title, img, price, id }) {
             <h1 className="">{title}</h1>
             <div className="text-3xl text-gray-500"> ${price}</div>
             {/* stars */}
-            <p className="font-semibold mx-auto max-w-[400px]">
+            <p className="font-semibold  mx-auto max-w-[400px] lg:mx-0">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis magni neque aliquid, hic saepe expedita aut
               voluptatibus adipisci, earum culpa sequi sed quibusdam ipsa
@@ -90,10 +113,6 @@ function DetailsSection({ title, img, price, id }) {
             {/* size */}
             <div className="text-gray-500 pb-4">Size</div>
             <div className="flex text-center justify-center lg:justify-start gap-x-5">
-              {/* <div className="size">L</div>
-              <div className="size">XL</div>
-              <div className="size">XS</div> */}
-
               {sizeData.map((item, index) => {
                 return (
                   <div
@@ -113,7 +132,6 @@ function DetailsSection({ title, img, price, id }) {
               <input
                 className="  w-[100px] text-center border border-[#9F9F9F] rounded-lg  h-[50px]"
                 type="text"
-                onChange={(e) => setCount(e.target.value)}
                 value={thisProduct ? thisProduct.cartCount : "0"}
               />
               <div
@@ -137,6 +155,27 @@ function DetailsSection({ title, img, price, id }) {
             {/* <div>{thisProduct.cartCount}</div> */}
           </div>
         </div>
+      </div>
+      <hr />
+
+      <div className="flex  gap-x-8 text-xl justify-center py-12 lg:py-14 lg:flex-row lg:text-2xl">
+        {infoData.map((item, index) => {
+          return (
+            <div
+              className={`text-gray-500 pb-2  cursor-pointer ${
+                selectedIndexInfo === index ? "text-black " : ""
+              }`}
+              onClick={() => setSelectedIndexInfo(index)}
+            >
+              {item.title}
+            </div>
+          );
+        })}
+      </div>
+      <div className=" max-w-[950px]  mx-auto flex justify-center lg:justify-start leading-6 text-center lg:text-start 	">
+        <article className="text-gray-500">
+          {infoData[selectedIndexInfo].description}
+        </article>
       </div>
     </section>
   );

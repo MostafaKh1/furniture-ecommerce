@@ -14,7 +14,7 @@ function Footer() {
         <ul className="flex flex-col gap-y-4  lg:gap-y-8">
           <li className="text-gray-500">Links</li>
           <li>
-            <Link path="/">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/shop">Shop</Link>

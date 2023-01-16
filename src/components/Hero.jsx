@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeroIMG from "../assets/hero.png";
 
 function Hero() {
@@ -10,7 +11,9 @@ function Hero() {
           <h1 className="max-w-[400px] lg:max-w-[640px]  xl:max-w-[500px]  mb-5  text-5xl lg:text-7xl  ">
             Rocket single seater
           </h1>
-          <button className="pt-12 lg:pt-16">Shop Now</button>
+          <Link to="/shop">
+            <button className="pt-12 lg:pt-16">Shop Now</button>
+          </Link>
         </div>
         <div className="pt-15">
           <img src={HeroIMG} />
