@@ -1,3 +1,3 @@
 "# furniture-ecommerce" 
-<hr />
+<br />
 run app => npm run dev
