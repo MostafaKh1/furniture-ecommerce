@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -9,11 +9,29 @@ import { FiMenu } from "react-icons/fi";
 import logo from "../assets/Logo.png";
 import Nav from "./Nav";
 import NavMobile from "../components/NavMobile";
+import { useSelector } from "react-redux";
 
 function Header() {
   const location = useLocation();
   const headerRef = useRef(null);
   const navigate = useNavigate();
+  const [totalInCart, setTotalInCart] = useState(0);
+
+  const { cart } = useSelector((state) => state.cart);
+
+  function getTotalNumber() {
+    let totalCounter = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalCounter += cart[i].cartCount;
+    }
+    return totalCounter;
+  }
+
+  useEffect(() => {
+    if (cart) {
+      setTotalInCart(getTotalNumber());
+    }
+  }, [cart]);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -55,14 +73,15 @@ function Header() {
       <div className="lg:hidden  absolute right-0 top-0 bg-[#FAF4F4]">
         <NavMobile
           navMobileMenu={navMobileMenu}
-          cart={<AiOutlineShoppingCart className="w-6 h-6" />}
-          user={<AiOutlineUser className="w-6 h-6" />}
-          favorite={<MdFavoriteBorder className="w-6 h-6" />}
+          cartIcon={<AiOutlineShoppingCart className="w-6 h-6" />}
+          userIcon={<AiOutlineUser className="w-6 h-6" />}
+          favoriteIcon={<MdFavoriteBorder className="w-6 h-6" />}
+          totalInCart={totalInCart}
         />
       </div>
       <div className="hidden lg:flex">
         {/* icons */}
-        <div className="flex gap-x-9">
+        <div className=" relative flex gap-x-9">
           <a>
             <AiOutlineUser className="w-6 h-6 cursor-pointer " />
           </a>
@@ -75,9 +94,12 @@ function Header() {
             <MdFavoriteBorder className="w-6 h-6 cursor-pointer" />
           </a>
 
-          <a>
+          <Link to="/cart">
             <AiOutlineShoppingCart className="w-6 h-6 cursor-pointer" />
-          </a>
+          </Link>
+          <span className="absolute right-[-8px] top-[-12px] px-[6px] text-sm bg-mainYellow rounded-full">
+            {totalInCart}
+          </span>
         </div>
       </div>
       {/* </div> */}

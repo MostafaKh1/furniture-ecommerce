@@ -61,10 +61,6 @@ function DetailsSection({ title, img, price, id }) {
     },
   ];
 
-  function InfoDescription(index) {
-    setSelectedIndexInfo(index);
-  }
-
   return (
     <section className="container bg-[#fff] mx-auto py-14 lg:py-20">
       <div className="flex gap-x-6 px-4 ">

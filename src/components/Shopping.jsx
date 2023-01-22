@@ -25,8 +25,10 @@ function Shopping() {
             className=" text-center lg:text-start py-4 gap-y-4  lg:flex-row"
           >
             <div className="py-5 ">
-              <h3 className="text-3xl font-semibold pb-3">{ele.title}</h3>
-              <p className="text-gray-500 mx-auto lg:mx-0 text-xl w-[376px]">
+              <h3 className="text-2xl md:text-3xl  font-semibold pb-3">
+                {ele.title}
+              </h3>
+              <p className="text-gray-500 mx-auto lg:mx-0 text-lg md:text-xl w-[376px]">
                 {ele.text}
               </p>
             </div>

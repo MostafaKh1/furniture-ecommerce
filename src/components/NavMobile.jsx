@@ -1,8 +1,13 @@
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-function NavMobile({ navMobileMenu, user, cart, favorite }) {
+function NavMobile({
+  navMobileMenu,
+  userIcon,
+  cartIcon,
+  favoriteIcon,
+  totalInCart,
+}) {
   return (
     <>
       {navMobileMenu ? (
@@ -14,7 +19,9 @@ function NavMobile({ navMobileMenu, user, cart, favorite }) {
               </Link>
             </li>
             <li>
-              <Link className="text-2xl">Shop</Link>
+              <Link to="/shop" className="text-2xl">
+                Shop
+              </Link>
             </li>
             <li>
               <a className="text-2xl">About</a>
@@ -23,10 +30,15 @@ function NavMobile({ navMobileMenu, user, cart, favorite }) {
               <a className="text-2xl">Contact</a>
             </li>
           </ul>
-          <div className="flex gap-x-8 justify-center pt-12 ">
-            <div>{user}</div>
-            <div>{favorite}</div>
-            <div>{cart}</div>
+          <div className="flex gap-x-8 relative  justify-center pt-12 ">
+            <div>{userIcon}</div>
+            <div>{favoriteIcon}</div>
+            <div>
+              <Link to="/cart">{cartIcon}</Link>
+              <span className="absolute top-9 text-sm bg-mainYellow px-[6px] rounded-full text-center items-center ">
+                {totalInCart}
+              </span>
+            </div>
           </div>
           {/* <AiOutlineClose className="absolute top-[35px] left-[18px] w-7 h-7 z-20"  /> */}
         </nav>
