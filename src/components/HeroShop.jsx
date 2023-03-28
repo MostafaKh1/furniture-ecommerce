@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function HeroShop() {
   const location = useLocation();
@@ -25,7 +25,7 @@ function HeroShop() {
             Home
           </Link>
           <span>{">"}</span>
-          <Link to="/shop">Shop</Link>
+          <div>{pageElement}</div>
         </div>
       </div>
     </section>

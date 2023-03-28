@@ -9,13 +9,14 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 function App() {
   const dispatch = useDispatch();
-  const { cart, cartTotalAmount } = useSelector((state) => state.cart);
+  const { cart, cartTotalAmount, orderDone } = useSelector(
+    (state) => state.cart
+  );
   useEffect(() => {
     dispatch(getProduct());
     dispatch(getTotalAmount());
   }, [dispatch, cart]);
-
-  console.log(cartTotalAmount);
+  console.log(orderDone);
   return (
     <BrowserRouter>
       <div>

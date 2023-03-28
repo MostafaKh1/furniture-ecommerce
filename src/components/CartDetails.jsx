@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTotalAmount } from "../store/cartSlice";
+import { getTotalAmount, PlaceOrder } from "../store/cartSlice";
 import CartItems from "./CartItems";
 import Item from "./Item";
 
 function CartDetails() {
-  const { cart, cartTotalAmount } = useSelector((state) => state.cart);
+  const { cart, cartTotalAmount, LoadingOrder, OrderDone } = useSelector(
+    (state) => state.cart
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTotalAmount());
@@ -54,8 +56,11 @@ function CartDetails() {
               </div>
 
               <div>
-                <button className="add-cart w-full lg:w-[200px]	">
-                  Check Out
+                <button
+                  className="add-cart w-full lg:w-[200px]"
+                  onClick={() => dispatch(PlaceOrder(cart))}
+                >
+                  {LoadingOrder ? "Ordering" : "Check out"}
                 </button>
               </div>
             </div>

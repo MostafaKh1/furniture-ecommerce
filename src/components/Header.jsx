@@ -16,8 +16,13 @@ function Header() {
   const headerRef = useRef(null);
   const navigate = useNavigate();
   const [totalInCart, setTotalInCart] = useState(0);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef();
 
   const { cart } = useSelector((state) => state.cart);
+  const { product } = useSelector((state) => state.product);
+  // const fillteredITems = product.title.include(inputValue);
 
   function getTotalNumber() {
     let totalCounter = 0;
@@ -26,6 +31,16 @@ function Header() {
     }
     return totalCounter;
   }
+
+  function openSearch() {
+    setIsOpenSearch((prev) => !prev);
+  }
+
+  useEffect(() => {
+    if (isOpenSearch) {
+      inputRef.current.focus();
+    }
+  }, [isOpenSearch]);
 
   useEffect(() => {
     if (cart) {
@@ -44,7 +59,7 @@ function Header() {
   const [navMobileMenu, setNavMobileMenu] = useState(false);
   return (
     <header
-      className=" flex justify-between  items-center  py-[30px] px-[10%] relative"
+      className=" flex justify-between  relative items-center  py-[30px] px-[10%] relative"
       ref={headerRef}
     >
       {/* <div className="flex justify-evenly  "> */}
@@ -87,8 +102,42 @@ function Header() {
           </a>
 
           <a>
-            <BsSearch className="w-6 h-6  cursor-pointer" />
+            <BsSearch
+              className="w-6 h-6  cursor-pointer"
+              onClick={openSearch}
+            />
           </a>
+
+          {isOpenSearch && (
+            <div>
+              <input
+                type="text"
+                className="w-15 xl:w-60 h-10  outline-none  px-3 "
+                ref={inputRef}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+
+              <button className="p-1 py-1 xl:px- border  text-mainYellow border-gray-300 text-lg bg-gray-400  border-b-gray-300 ">
+                Search
+              </button>
+
+              <div className="absolute">
+                {product
+                  .filter((item) => {
+                    return inputValue && item.title.includes(inputValue);
+                  })
+                  .map((item) => (
+                    <div className="bg-gray-100 text-center flex max-w-[600px] justify-between">
+                      <img src={item.img} className="w-18 h-12 px-2 " />
+
+                      <Link to={`shop/${item.id}`} className="py-2 px-2">
+                        {inputValue && item.title}
+                      </Link>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
 
           <a>
             <MdFavoriteBorder className="w-6 h-6 cursor-pointer" />

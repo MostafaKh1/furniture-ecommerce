@@ -8,7 +8,6 @@ import TopPicks from "../components/TopPicks";
 
 function ProductDetails() {
   const { product } = useSelector((state) => state.product);
-  const { cart } = useSelector((state) => state.cart);
   const { productID } = useParams();
   const thisItem = product.find((item) => item.id === +productID); // [+] cuz get id of string change it to number
 

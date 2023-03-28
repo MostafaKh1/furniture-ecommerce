@@ -39,11 +39,7 @@ function DetailsSection({ title, img, price, id }) {
       size: "XL",
     },
   ];
-  {
-    /* <div className="text-gray-500">Description</div>
-        <div className="text-gray-500">Additional Information</div>
-        <div className="text-gray-500">Reviews [5]</div> */
-  }
+
   const longDescription =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. In ab suscipit harum sequi obcaecati consectetur nesciunt, labore repudiandae ratione voluptate consequatur voluptatem sapiente modi quam ullam maxime cumque! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor perspiciatis commodi eveniet? Molestias aut repellendus minima, facere cupiditate esse cum iste eos pariatur fugiat ullam. Reiciendis sed quidem inventore dignissimos.";
   const infoData = [
@@ -112,6 +108,7 @@ function DetailsSection({ title, img, price, id }) {
               {sizeData.map((item, index) => {
                 return (
                   <div
+                    key={index}
                     onClick={() => setSelectedIndex(index)}
                     className={`size ${
                       selectedIndex === index ? "bg-mainYellow" : ""
@@ -125,11 +122,12 @@ function DetailsSection({ title, img, price, id }) {
           </div>
           <div className="flex flex-col lg:flex-row lg:gap-x-4 ">
             <div className="relative mx-auto lg:mx-0 py-4">
-              <input
-                className="  w-[100px] text-center border border-[#9F9F9F] rounded-lg  h-[50px]"
+              <div
+                className="  flex justify-center items-center w-[100px] text-center border border-[#9F9F9F] rounded-lg  h-[50px]"
                 type="text"
-                value={thisProduct ? thisProduct.cartCount : "0"}
-              />
+              >
+                <span>{thisProduct ? thisProduct.cartCount : "0"}</span>
+              </div>
               <div
                 className="absolute   cursor-pointer text-2xl left-2 top-3"
                 onClick={() => decrease(thisProduct)}
@@ -158,6 +156,7 @@ function DetailsSection({ title, img, price, id }) {
         {infoData.map((item, index) => {
           return (
             <div
+              key={index}
               className={`text-gray-500 pb-2  cursor-pointer ${
                 selectedIndexInfo === index ? "text-black " : ""
               }`}

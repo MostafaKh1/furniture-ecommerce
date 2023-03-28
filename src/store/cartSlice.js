@@ -1,6 +1,11 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { cart: [], cartTotalAmount: 0 };
+const initialState = {
+  cart: [],
+  cartTotalAmount: 0,
+  loadingOrder: false,
+  orderDone: [],
+};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -25,7 +30,6 @@ const cartSlice = createSlice({
 
       if (state.cart[indexItem].cartCount > 1) {
         state.cart[indexItem].cartCount -= 1;
-        console.log(state.cart[indexItem].cartCount);
       } else if (state.cart[indexItem].cartCount === 1) {
         const removeCart = state.cart.filter(
           (item) => item.id !== action.payload.id
@@ -53,10 +57,23 @@ const cartSlice = createSlice({
       );
       state.cartTotalAmount = total;
     },
+
+    PlaceOrder: (state, action) => {
+      if (state.cart.length >= 1) {
+        state.loadingOrder = true;
+        state.orderDone.push(action.payload);
+        state.cart = [];
+      }
+    },
   },
 });
 
 export default cartSlice.reducer;
 
-export const { getItem, decreaseCart, removeFromCart, getTotalAmount } =
-  cartSlice.actions;
+export const {
+  getItem,
+  decreaseCart,
+  removeFromCart,
+  getTotalAmount,
+  PlaceOrder,
+} = cartSlice.actions;

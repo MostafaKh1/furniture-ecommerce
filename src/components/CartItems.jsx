@@ -27,7 +27,7 @@ function CartItems({ id, title, img, price, cartCount }) {
         <MdDelete
           onClick={() => dispatch(removeFromCart(id))}
           size={30}
-          className="text-[#FBEBB5] mr-0 md:mr-6  "
+          className="text-[#FBEBB5] cursor-pointer mr-0 md:mr-6  "
         />
       </div>
     </div>
