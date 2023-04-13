@@ -59,7 +59,7 @@ function Header() {
   const [navMobileMenu, setNavMobileMenu] = useState(false);
   return (
     <header
-      className=" flex justify-between  relative items-center  py-[30px] px-[10%] relative"
+      className=" flex justify-between   items-center  py-[30px] px-[10%] relative"
       ref={headerRef}
     >
       {/* <div className="flex justify-evenly  "> */}
@@ -146,9 +146,11 @@ function Header() {
           <Link to="/cart">
             <AiOutlineShoppingCart className="w-6 h-6 cursor-pointer" />
           </Link>
-          <span className="absolute right-[-8px] top-[-12px] px-[6px] text-sm bg-mainYellow rounded-full">
-            {totalInCart}
-          </span>
+          {cart.length >= 1 && (
+            <span className="absolute right-[-8px] top-[-12px] px-[6px] text-sm bg-mainYellow rounded-full">
+              {totalInCart}
+            </span>
+          )}
         </div>
       </div>
       {/* </div> */}

@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTotalAmount, PlaceOrder } from "../store/cartSlice";
 import CartItems from "./CartItems";
 import Item from "./Item";
+import LoadingItems from "./LoadingItems";
+
+const LazyCartItems = React.lazy(() => import("./CartItems"));
 
 function CartDetails() {
   const { cart, cartTotalAmount, LoadingOrder, OrderDone } = useSelector(
@@ -32,14 +35,16 @@ function CartDetails() {
               <div className="items-center py-10 ">
                 {cart &&
                   cart.map((item) => (
-                    <CartItems
-                      key={item?.id}
-                      id={item?.id}
-                      title={item?.title}
-                      img={item?.img}
-                      price={item?.price}
-                      cartCount={item?.cartCount}
-                    />
+                    <Suspense fallback={<LoadingItems />}>
+                      <LazyCartItems
+                        key={item?.id}
+                        id={item?.id}
+                        title={item?.title}
+                        img={item?.img}
+                        price={item?.price}
+                        cartCount={item?.cartCount}
+                      />
+                    </Suspense>
                   ))}
               </div>
             </div>
