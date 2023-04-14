@@ -10,11 +10,11 @@ function Product() {
   return (
     <section className="bg-[#FFF] py-12 lg:py-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 gap-y-6">
-        <Suspense fallback={<LoadingItems />}>
-          {product.map(({ id, title, img, price }) => (
+        {product.map(({ id, title, img, price }) => (
+          <Suspense fallback={<LoadingItems />}>
             <LazyItem key={id} id={id} title={title} img={img} price={price} />
-          ))}
-        </Suspense>
+          </Suspense>
+        ))}
       </div>
     </section>
   );

@@ -74,10 +74,17 @@ function DetailsSection({ title, img, price, id }) {
           {/* left */}
           <div className="flex flex-col gap-y-6">
             {/* small imgs */}
-            <img width={78} height={80} src={img} className="bg-mainYellow" />
-            <img width={78} height={80} src={img} className="bg-mainYellow" />
-            <img width={78} height={80} src={img} className="bg-mainYellow" />
-            <img width={78} height={80} src={img} className="bg-mainYellow" />
+
+            {[...Array(4)].map(() => {
+              return (
+                <img
+                  width={78}
+                  height={80}
+                  src={img}
+                  className="bg-mainYellow"
+                />
+              );
+            })}
           </div>
           <div>
             {/* big one */}

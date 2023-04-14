@@ -22,7 +22,6 @@ function Header() {
 
   const { cart } = useSelector((state) => state.cart);
   const { product } = useSelector((state) => state.product);
-  // const fillteredITems = product.title.include(inputValue);
 
   function getTotalNumber() {
     let totalCounter = 0;
@@ -127,8 +126,11 @@ function Header() {
                     return inputValue && item.title.includes(inputValue);
                   })
                   .map((item) => (
-                    <div className="bg-gray-100 text-center flex max-w-[600px] justify-between">
-                      <img src={item.img} className="w-18 h-12 px-2 " />
+                    <div className="bg-gray-100 text-center  mb-2 flex w-[306px] rounded-lg  justify-between hover:bg-gray-600">
+                      <img
+                        src={item.img}
+                        className="w-[80px]  h-[64px] pr-4 px-2 bg-mainYellow "
+                      />
 
                       <Link to={`shop/${item.id}`} className="py-2 px-2">
                         {inputValue && item.title}

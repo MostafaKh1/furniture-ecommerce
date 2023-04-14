@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Header from "./../components/Header";
@@ -15,11 +15,12 @@ function ProductDetails() {
     <div>
       <Header />
       <DetailsSection
-        title={thisItem?.title}
-        img={thisItem?.img}
-        price={thisItem?.price}
-        id={thisItem?.id}
-        cartCount={thisItem?.cartCount}
+        // title={thisItem?.title}
+        // img={thisItem?.img}
+        // price={thisItem?.price}
+        // id={thisItem?.id}
+        // cartCount={thisItem?.cartCount}
+        {...thisItem}
       />
       <TopPicks />
       <Footer />

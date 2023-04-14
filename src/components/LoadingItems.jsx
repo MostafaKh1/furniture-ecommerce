@@ -6,10 +6,7 @@ function LoadingItems() {
       <div className="border flex justify-center max-w-[278px] h-[278px] items-center  ">
         className="items-center mx-auto cursor-pointer "
         <div className="items-center mx-auto cursor-pointer  ">
-          <img
-            className=""
-            src="https://cdn.dribbble.com/users/65712/screenshots/1839665/loader.gif"
-          />
+          <div class="spinner"></div>
         </div>
       </div>
       <div className="  text-center  py-6 pl-0 md:text-start md:pl-6 ">
